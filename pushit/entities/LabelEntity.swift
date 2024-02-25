@@ -2,7 +2,7 @@
 //  LabelModel.swift
 //  pushit
 //
-//  Created by Octavian on 25/05/23.
+//  Created by Octavian on 22/02/24.
 //
 
 import Foundation
@@ -15,12 +15,14 @@ class texts {
     var fontSize : CGFloat?
     var color : UIColor?
     var text : String?
+    var owner : String
     
-    init(position: CGPoint, fontSize: CGFloat, color: UIColor, text: String, name : String) {
+    init(position: CGPoint, fontSize: CGFloat, color: UIColor, text: String, name : String, owner: String) {
         self.position = position
         self.fontSize = fontSize
         self.color = color
         self.text = text
+        self.owner = owner
         spriteNode = SKLabelNode(text: text)
         spriteNode.name = name
         spriteNode.position = position

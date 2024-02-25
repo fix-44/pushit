@@ -2,7 +2,7 @@
 //  brickModel.swift
 //  pushit
 //
-//  Created by Octavian on 22/05/23.
+//  Created by Octavian on 22/02/24.
 //
 
 import Foundation
@@ -16,16 +16,15 @@ class bricks {
     
     var spriteNode : SKShapeNode
     var size: CGSize
-    var colorValue : Int
+    var color : UIColor
     var position: CGPoint
-    init(size:CGSize, colorValue:Int, position: CGPoint, name: String) {
+    init(size:CGSize, color: UIColor, position: CGPoint, name: String) {
         self.size = size
-        self.colorValue = colorValue
+        self.color = color
         self.position = position
         spriteNode = SKShapeNode(rectOf: size )
-        spriteNode.fillColor = self.colorValue == 0  ? blue : green
+        spriteNode.fillColor = self.color
         spriteNode.position = position
-        
         spriteNode.physicsBody = SKPhysicsBody(rectangleOf: size )
         spriteNode.physicsBody?.affectedByGravity = false
         spriteNode.physicsBody?.isDynamic = false
@@ -33,12 +32,13 @@ class bricks {
         spriteNode.physicsBody?.collisionBitMask = CollisionCategory.item.rawValue | CollisionCategory.player.rawValue
         spriteNode.physicsBody?.contactTestBitMask = CollisionCategory.item.rawValue | CollisionCategory.player.rawValue
         spriteNode.name = name
+        spriteNode.scene?.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         
     }
     
-    func updateValueColor(){
-        colorValue = colorValue == 0 ? 1 : 0
-        spriteNode.fillColor = self.colorValue == 0  ? blue : green
+    func updateValueColor(color : UIColor){
+//        colorValue = colorValue == 0 ? 1 : 0
+        spriteNode.fillColor = color
     }
     
 }

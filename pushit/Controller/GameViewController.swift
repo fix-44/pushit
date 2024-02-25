@@ -13,7 +13,7 @@ class GameViewController: UIViewController {
         
         
         // Create and configure the game scene
-//        let scene = GameScene(size: skView.bounds.size)
+        //  let scene = GameScene(size: skView.bounds.size)
         let scene = HomeScene(size: skView.bounds.size)
         scene.scaleMode = .aspectFit
         //Enable physics
